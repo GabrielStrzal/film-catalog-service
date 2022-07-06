@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "6937706a-489f-483c-8895-510193fac5fa",
+		"name": "Film",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Film by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code equal 200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"pm.test(\"Validate response body - ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.be.a('number')\r",
+							"});\r",
+							"pm.test(\"Validate response body - titre\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.titre).eq(\"Star Wars: The Empire Strikes Back\")\r",
+							"});\r",
+							"pm.test(\"Validate response body - description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).eq(\"Darth Vader is adamant about turning Luke Skywalker to the dark side.\")\r",
+							"});\r",
+							"pm.test(\"Validate response body - acteurs\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.acteurs).to.be.a('array')\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/film/4",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"film",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post a Film",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code equal 201\", function () {\r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"pm.test(\"Validate response body - ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.be.a('number')\r",
+							"});\r",
+							"pm.test(\"Validate response body - titre\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.titre).eq(\"Star Wars: The Empire Strikes Back\")\r",
+							"});\r",
+							"pm.test(\"Validate response body - description\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.description).eq(\"Darth Vader is adamant about turning Luke Skywalker to the dark side.\")\r",
+							"});\r",
+							"pm.test(\"Validate response body - acteurs\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.acteurs).to.be.a('array')\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"titre\":\"Star Wars: The Empire Strikes Back\",\r\n   \"description\":\"Darth Vader is adamant about turning Luke Skywalker to the dark side.\",\r\n   \"acteurs\":[\r\n      {\r\n         \"nom\":\"Ford\",\r\n         \"prenom\":\"Harrison\"\r\n      },\r\n      {\r\n         \"nom\":\"Hamill\",\r\n         \"prenom\":\"Mark\"\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/film/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"film",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Films",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response code equal 201\", function () {\r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"pm.test(\"Validate response body - acteurs\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.a('array')\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/film/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"film",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
