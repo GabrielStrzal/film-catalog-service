@@ -8,7 +8,7 @@ import lombok.Data;
 @Schema(name = "Acteur")
 public class ActeurDTO {
 
-    public Long id;
-    public String nom;
-    public String prenom;
+    private Long id;
+    private String nom;
+    private String prenom;
 }

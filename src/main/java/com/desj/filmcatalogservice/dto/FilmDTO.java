@@ -11,8 +11,8 @@ import java.util.List;
 @Schema(name = "Film")
 public class FilmDTO {
 
-    public Long id;
-    public String titre;
-    public String description;
-    public List<ActeurDTO> acteurs = null;
+    private Long id;
+    private String titre;
+    private String description;
+    private List<ActeurDTO> acteurs = null;
 }
